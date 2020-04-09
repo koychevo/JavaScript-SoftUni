@@ -1,14 +1,15 @@
 function deleteReapingChars(str) {
-    let result = '';
-    for(let i = 0; i < str.length; i++) {
-        let j = i + 1;
-        while(str[i] === str[j]) {
-            i = j
-            j++;
-        }
-        result += str[i];
-    }
-    return result;
+    
+    return str.split('')
+                .filter((el, ind, arr) => el !== arr[ind+1])
+                    .join('');
+    //let result = '';
+    //for (let i = 1; i < str.length; i++) {
+    //    if (str[i] !== str[i + 1]) {
+    //        result += str[i];
+    //    }
+    //}
+    //return result;
 }
 
 console.log(deleteReapingChars('aaaaabbbbbcdddeeeedssaa'));
